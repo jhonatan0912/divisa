@@ -8,7 +8,7 @@ class ConeccionAgendaElectronica
       '127.0.0.1', //localhost
       'root', //user
       '1234', //passwordDB
-      'agenda_electronica', //name_DB
+      'caso_practico', //name_DB
       3306 //port
     );
   }

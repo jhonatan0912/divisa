@@ -8,31 +8,36 @@ class ContactoAdapter
   static function listar()
   {
     $db = new ConeccionAgendaElectronica();
-    $sql = "SELECT * FROM agenda_electronica.contactos;";
+    $sql = "SELECT * FROM caso_practico.user;";
     $tabla = $db->consulta($sql);
-      $contacto = [];
-      foreach ($tabla as $fila) {
-        $contacto[] = Contacto::desdeFila($fila);
-      }
-      return $contacto;
+    $contacto = [];
+    foreach ($tabla as $fila) {
+      $contacto[] = User::desdeFila($fila);
+    }
+    return $contacto;
   }
 
 
   static function listarPorNombre($nombresSearch)
   {
     $db = new ConeccionAgendaElectronica();
-    $sql = "SELECT idContacto,
-                  nombres,
-                  apellidos,
-                  edad,
-                  correo,
-                  telefono
-     FROM `agenda_electronica`.`contactos`
-     WHERE nombres 
+    $sql = "SELECT idUser,
+                  userCode,
+                  name,
+                  lastName,
+                  documentType,
+                  document,
+                  bornDate,
+                  address,
+                  country
+     FROM caso_practico.user
+     WHERE name 
      LIKE '$nombresSearch';";
+    // echo $sql;
+
     $tabla = $db->consulta($sql);
     if (count($tabla) > 0) {
-      return Contacto::desdeFila($tabla[0]);
+      return User::desdeFila($tabla[0]);
     } else {
       return null;
     }
@@ -41,60 +46,68 @@ class ContactoAdapter
   static function countNumberContacts()
   {
     $db = new ConeccionAgendaElectronica();
-    $sql = "SELECT * FROM agenda_electronica.contactos;";
+    $sql = "SELECT * FROM caso_practico.user;";
     $numeroContactos = $db->numberContact($sql);
     return $numeroContactos;
   }
 
-  static function getContactById($idContacto)
+  static function getContactById($idUser)
   {
     $db = new ConeccionAgendaElectronica();
-    $sql = "SELECT * FROM `agenda_electronica`.`contactos`
-     WHERE idContacto = $idContacto;";
+    $sql = "SELECT * FROM `caso_practico`.`user`
+     WHERE idUser = $idUser;";
     $tabla = $db->consulta($sql);
     if (count($tabla) > 0) {
-      return Contacto::desdeFila($tabla[0]);
+      return User::desdeFila($tabla[0]);
     } else {
       return null;
     }
   }
 
 
-  static function createContact($contacto)
+  static function createContact($user)
   {
     $db = new ConeccionAgendaElectronica();
-    $sql = "INSERT INTO
-     `agenda_electronica`.`contactos`
-     ( `nombres`,
-      `apellidos`,
-      `edad`,
-      `correo`,
-      `telefono`)
-      VALUES 
-      ('$contacto->nombres',
-      '$contacto->apellidos',
-      '$contacto->edad',
-      '$contacto->correo',
-      '$contacto->telefono');";
-    echo $sql;
+    $sql = "INSERT INTO `caso_practico`.`user`
+            (`userCode`,
+            `name`,
+            `lastName`,
+            `documentType`,
+            `document`,
+            `bornDate`,
+            `address`,
+            `country`)
+            VALUES
+            (
+              '$user->userCode',
+              '$user->name',
+              '$user->lastName',
+              '$user->documentType',
+              '$user->document',
+              '$user->bornDate',
+              '$user->address',
+              '$user->country'
+            );";
+    // echo $sql;
     $id = $db->create($sql);
-    echo $id;
-    $db->close();
     return $id;
   }
 
-  static function updateContact($contacto)
+  static function updateContact($user)
   {
     $db = new ConeccionAgendaElectronica();
-    $sql = "UPDATE `agenda_electronica`.`contactos`
-    SET
-    `nombres` = '$contacto->nombres',
-    `apellidos` = '$contacto->apellidos',
-    `edad` = '$contacto->edad',
-    `correo` = '$contacto->correo',
-    `telefono` = '$contacto->telefono'
-    WHERE  idContacto = $contacto->idContacto";
     // echo $sql;
+    $sql = "UPDATE `caso_practico`.`user`
+SET
+`userCode` = '$user->userCode',
+`name` = '$user->name',
+`lastName` = '$user->lastName',
+`documentType` = '$user->documentType',
+`document` = '$user->document',
+`bornDate` = '$user->bornDate',
+`address` = '$user->address',
+`country` = '$user->country'
+WHERE `idUser` = '$user->idUser';";
     $respuesta = $db->update($sql);
     $db->close();
     return $respuesta;

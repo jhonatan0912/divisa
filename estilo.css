@@ -1,43 +1,54 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
-  background-color:#F2F2F2 ;
+body {
+  background-color: #F2F2F2;
   font-size: 16px;
   font-family: 'Varela Round', sans-serif;
 }
-label{
+
+label {
   font-size: 1.5em;
 }
-a{
+
+a {
   text-decoration: none;
   color: #000;
 }
-.options{
-display: flex;
-padding: 50px 70px;
-justify-content: space-between;
-border-bottom: 1px solid grey;
-box-shadow: 0 1px 3px grey;
+
+.options {
+  display: flex;
+  padding: 50px 70px;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  box-shadow: 0 1px 3px grey;
 }
-.options-crud{
+
+.options-crud {
   display: flex;
 }
-.new-register,.update,.delete{
+
+.new-register,
+.update,
+.delete {
   border-radius: 10px;
 }
-.new-register:hover,.update:hover,.delete:hover{
+
+.new-register:hover,
+.update:hover,
+.delete:hover {
   background-color: rgb(142, 142, 142);
 }
-.hover-a:hover{
+
+.hover-a:hover {
   color: #ffffff;
 }
-.new-register{
+
+.new-register {
   width: 150px;
   height: 80px;
   border: 1px solid #000;
@@ -45,123 +56,152 @@ box-shadow: 0 1px 3px grey;
   line-height: 80px;
   text-align: center;
 }
-.update{
+
+.update {
   width: 150px;
   border: 1px solid #000;
   font-size: 1.5em;
   text-align: center;
   line-height: 80px;
-}
-.delete{
-  width: 150px;
-  border: 1px solid #000;
-  font-size: 1.5em;
-  text-align: center;
-  line-height: 80px;
-}
-.search{
-  display: flex;
-  flex-direction: column;
-  
 }
 
-.estilos-search{
+.delete {
+  width: 150px;
+  border: 1px solid #000;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 80px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.estilos-search {
   height: 30px;
   width: 55px;
   border-radius: 8px;
   border: groove;
 }
-.buscador{
-  border-radius:8px;;
+
+.buscador {
+  border-radius: 8px;
+  ;
   height: 30px;
-  border: 1px solid ;
+  border: 1px solid;
 }
 
-th, td {
-  border:2px solid black;
+th,
+td {
+  border: 2px solid black;
   font-size: 1.5em;
   padding: 15px;
   border-radius: 5px;
 }
-table{
+
+table {
   margin: 100px auto;
 }
-.total-contacts{
+
+.total-contacts {
   font-size: 2em;
   font-weight: 700;
   margin-left: 40px;
 }
-::placeholder{
+
+::placeholder {
   text-align: center;
   font-size: 18px;
 }
-.form-register{
+
+.form-register {
   width: 400px;
   text-align: center;
-  background-color: #8c8ce3;
+  background-color: #9a9a9a;
   padding: 50px;
   border-radius: 15px;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 3px 3px 10px  #000;
+  box-shadow: 3px 3px 10px #000;
 }
-.inputs-register{
+
+.inputs-register {
   height: 30px;
   width: 200px;
   border-radius: 10px;
-  border: 2px solid ;
+  border: 2px solid;
   margin: 0 auto;
+  padding: 0 10px;
 }
-.submit-register{
+
+.submit-register {
   width: 150px;
   height: 30px;
   border-radius: 12px;
   margin: 0 auto;
   font-weight: 700;
+  margin-top: 10px;
+  background-color: #e27070;
 }
-.submit-register:hover{
-  background-color: #3939e2 ;
+
+.submit-register:hover {
+  background-color: #3939e2;
   color: #ffffff;
 }
-.intercalado{
+
+.intercalado {
   background-color: rgb(95, 95, 95);
 }
-.intercalado2{
-   background-color: rgb(142, 142, 142);
+
+.intercalado2 {
+  background-color: rgb(142, 142, 142);
 }
-.error-search{
-text-align: center;
-background-color: #fc3c3c;
-height: 80px;
-line-height: 70px;
-color: #ffffff;
+
+.error-search {
+  text-align: center;
+  background-color: #fc3c3c;
+  height: 80px;
+  line-height: 70px;
+  color: #ffffff;
 }
 
 
 /* estilos images opciones */
-.img-options{
+.img-options {
   width: 30px;
   fill: red;
 }
 
 
 /* clases de apoyo */
-.marginOptions{
-margin-right: 1em;
+.marginOptions {
+  margin-right: 1em;
 }
-.update{
+
+.update {
   background-color: #8c8ce3;
 }
-.delete{
+
+.delete {
   background-color: #df6767;
 }
-.colorWhite{
+
+.colorWhite {
   color: #ffffff;
 }
-.backgroundWhite{
+
+.backgroundWhite {
   background-color: #ffffff;
 }
-.updateTextCenter{
+
+.updateTextCenter {
   text-align: center;
 }
+input [number]::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        -webkit-appearance: none;   
+        margin: 0;
+        }

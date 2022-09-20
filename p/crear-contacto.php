@@ -1,22 +1,24 @@
 <?php
 require_once __DIR__ . '/../bd/contactosAdapter.php';
-
-
-$idContacto = '';
-
-
+date_default_timezone_set('America/Lima');
+$date = date("Y");
+$numberRows = ContactoAdapter::countNumberContacts();
 if (isset($_POST['registrar'])) {
-  $nombres = $_POST['nombres'];
-  $apellidos = $_POST['apellidos'];
-  $edad = $_POST['edad'];
-  $correo = $_POST['correo'];
-  $telefono = $_POST['telefono'];
+  $userCode = $date . str_pad($numberRows + 1,  4, "0", STR_PAD_LEFT);
+  $name = $_POST['name'];
+  $lastName = $_POST['lastName'];
+  $documentType = $_POST['documentType'];
+  $document = $_POST['document'];
+  $bornDate = $_POST['bornDate'];
+  $address = $_POST['address'];
+  $country = $_POST['country'];
+  $user = new User(0, $userCode, $name, $lastName, $documentType, $document, $bornDate, $address, $country);
+  $id = ContactoAdapter::createContact($user);
 
-  $contacto = new Contacto(0, $nombres, $apellidos, $edad, $correo, $telefono);
-
-  $id = ContactoAdapter::createContact($contacto);
-  if ($id) {
-    header('location: /');
+  if ($id != false) {
+    // echo "registrado correctamente";
+  } else {
+    // echo "error";
   }
 }
 
@@ -28,7 +30,8 @@ if (isset($_POST['registrar'])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/../estilo.css">
-  <title>Crear Contacto</title>
+  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
+  <title>Registro cliente</title>
 </head>
 
 <body>
@@ -37,22 +40,39 @@ if (isset($_POST['registrar'])) {
     <h1>REGISTRO CONTACTO</h1>
     <br>
     <br>
-    <label for="nombres">NOMBRES:</label>
-    <input class="inputs-register" type="text" name="nombres">
+    <label for="">NOMBRES:</label>
+    <input class="inputs-register" type="text" name="name" pattern="[A-Za-z]{1,50}" title="Solo debe considerar letras mayusculas o minusculas / Sin números" required>
     <br>
-    <label for="apellidos">APELLIDOS:</label>
-    <input class="inputs-register" type="text" name="apellidos">
+    <label for="">APELLIDOS:</label>
+    <input class="inputs-register" type="text" name="lastName" pattern="[A-Za-z]{1,80}" title="solo debe considerar letras mayusculas o minusculas / Sin números" required>
     <br>
-    <label for="edad">EDAD:</label>
-    <input class="inputs-register" type="text" name="edad">
+    <label for="">TIPO DOCUMENTO:</label>
+    <select name="documentType" id="" required class="inputs-register">
+      <option value="DNI" name="DNI">DNI</option>
+      <option value="PASAPORTE" name="PASAPORTE">PASAPORTE</option>
+    </select>
     <br>
-    <label for="correo">CORREO:</label>
-    <input class="inputs-register" type="text" name="correo">
+    <label for="correo">DOCUMENTO:</label>
+    <input class="inputs-register" type="number" name="document" min="1" minlength="8" maxlength="12" pattern="[0-9]" required>
     <br>
-    <label for="telefono">TELEFONO:</label>
-    <input class="inputs-register" type="text" name="telefono">
+    <label for="">FECHA NACIMIENTO:</label>
+    <input class="inputs-register" type="date" name="bornDate" max="2004-01-01" required>
+    <br>
+    <label for="">DIRECCION:</label>
+    <input class="inputs-register" type="text" name="address" pattern="[A-Za-z]{1,80}" required>
+    <br>
+    <label for="">PAÍS:</label>
+    <select name="country" class="inputs-register">
+      <option value="peru">Peru</option>
+      <option value="colombia">Colombia</option>
+      <option value="brasil">Brasil</option>
+      <option value="chile">Chile</option>
+      <option value="argentina">Argentina</option>
+      <option value="otros">Otros</option>
+    </select>
     <br>
     <input class="submit-register" type="submit" name="registrar" value="REGISTRAR">
+    <input class="submit-register" type="reset" name="borrar" value="BORRAR">
   </form>
 
 </body>

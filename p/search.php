@@ -23,18 +23,24 @@ if (isset($nombresSearch)) {
       <table>
         <h1>RESULTADO BUSQUEDA:</h1>
         <tr>
-          <th class="intercalado">NOMBRES</th>
-          <th class="intercalado2 ">APELLIDOS</th>
-          <th class="intercalado">EDAD</th>
-          <th class="intercalado2 ">CORREO</th>
-          <th class="intercalado">TELEFONO</th>
+          <th class="intercalado">CODIGO</th>
+          <th class="intercalado2">NOMBRES</th>
+          <th class="intercalado">APELLIDOS</th>
+          <th class="intercalado2">TIPO DOCUMENTO</th>
+          <th class="intercalado">DOCUMENTO</th>
+          <th class="intercalado2">FECHA NACIMIENTO</th>
+          <th class="intercalado">DIRECCION</th>
+          <th class="intercalado2">PAIS</th>
         </tr>
         <tr>
-          <td><?php echo ucwords($datosCLiente->nombres) ?></td>
-          <td><?php echo ucwords($datosCLiente->apellidos) ?></td>
-          <td><?php echo $datosCLiente->edad ?></td>
-          <td><?php echo $datosCLiente->correo ?></td>
-          <td><?php echo $datosCLiente->telefono ?></td>
+          <td><?php echo ucwords($datosCLiente->userCode) ?></td>
+          <td><?php echo ucwords($datosCLiente->name) ?></td>
+          <td><?php echo $datosCLiente->lastName ?></td>
+          <td><?php echo $datosCLiente->documentType ?></td>
+          <td><?php echo $datosCLiente->document ?></td>
+          <td><?php echo $datosCLiente->bornDate ?></td>
+          <td><?php echo $datosCLiente->address ?></td>
+          <td><?php echo $datosCLiente->country ?></td>
         </tr>
       </table>
     </div>

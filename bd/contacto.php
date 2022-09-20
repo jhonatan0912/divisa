@@ -1,34 +1,52 @@
 <?php
 
-class Contacto
+class User
 {
-  public $idContacto;
-  public $nombres;
-  public $apellidos;
-  public $edad;
-  public $correo;
-  public $telefono;
+  public $idUser;
+  public $userCode;
+  public $name;
+  public $lastName;
+  public $documentType;
+  public $document;
+  public $bornDate;
+  public $address;
+  public $country;
 
-  function __construct($idContacto, $nombres, $apellidos, $edad, $correo, $telefono)
-  {
-    $this->idContacto = $idContacto;
-    $this->nombres = $nombres;
-    $this->apellidos = $apellidos;
-    $this->edad = $edad;
-    $this->correo = $correo;
-    $this->telefono = $telefono;
+  function __construct(
+    $idUser,
+    $userCode,
+    $name,
+    $lastName,
+    $documentType,
+    $document,
+    $bornDate,
+    $address,
+    $country,
+  ) {
+    $this->idUser = $idUser;
+    $this->userCode = $userCode;
+    $this->name = $name;
+    $this->lastName = $lastName;
+    $this->documentType = $documentType;
+    $this->document = $document;
+    $this->bornDate = $bornDate;
+    $this->address = $address;
+    $this->country = $country;
   }
 
   static function desdeFila($fila)
   {
-    $contactos = new Contacto(
-      $fila['idContacto'],
-      $fila['nombres'],
-      $fila['apellidos'],
-      $fila['edad'],
-      $fila['correo'],
-      $fila['telefono']
+    $users = new User(
+      $fila['idUser'],
+      $fila['userCode'],
+      $fila['name'],
+      $fila['lastName'],
+      $fila['documentType'],
+      $fila['document'],
+      $fila['bornDate'],
+      $fila['address'],
+      $fila['country'],
     );
-    return $contactos;
+    return $users;
   }
 }
