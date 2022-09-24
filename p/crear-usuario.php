@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../bd/contactosAdapter.php';
+require_once __DIR__ . '/../bd/userController.php'; 
 date_default_timezone_set('America/Lima');
 $date = date("Y");
-$numberRows = ContactoAdapter::countNumberContacts();
+$numberRows = UserController::countNumberContacts(); 
 if (isset($_POST['registrar'])) {
   $userCode = $date . str_pad($numberRows + 1,  4, "0", STR_PAD_LEFT);
   $name = $_POST['name'];
@@ -13,7 +13,7 @@ if (isset($_POST['registrar'])) {
   $address = $_POST['address'];
   $country = $_POST['country'];
   $user = new User(0, $userCode, $name, $lastName, $documentType, $document, $bornDate, $address, $country);
-  $id = ContactoAdapter::createContact($user);
+  $id = UserController::createContact($user); 
 
   if ($id != false) {
     // echo "registrado correctamente";
@@ -37,32 +37,48 @@ if (isset($_POST['registrar'])) {
 <body>
 
   <form class="form-register" action="" method="POST">
-    <h1>REGISTRO CONTACTO</h1>
+    <h1>REGISTRO USUARIOS</h1>
     <br>
     <br>
-    <label for="">NOMBRES:</label>
+    <label for="">
+      NOMBRES: <small>(obligatorio)</small>
+    </label>
     <input class="inputs-register" type="text" name="name" pattern="[A-Za-z]{1,50}" title="Solo debe considerar letras mayusculas o minusculas / Sin números" required>
     <br>
-    <label for="">APELLIDOS:</label>
+    <label for="">
+      APELLIDOS: <small>(obligatorio)</small>
+    </label>
     <input class="inputs-register" type="text" name="lastName" pattern="[A-Za-z]{1,80}" title="solo debe considerar letras mayusculas o minusculas / Sin números" required>
     <br>
-    <label for="">TIPO DOCUMENTO:</label>
+    <label for="">
+      TIPO DOCUMENTO: <small>(obligatorio)</small>
+    </label>
     <select name="documentType" id="" required class="inputs-register">
-      <option value="DNI" name="DNI">DNI</option>
-      <option value="PASAPORTE" name="PASAPORTE">PASAPORTE</option>
+      <option value="DNI" name="DNI">
+        DNI
+      </option>
+      <option value="PASAPORTE" name="PASAPORTE">
+        PASAPORTE
+      </option>
     </select>
     <br>
-    <label for="correo">DOCUMENTO:</label>
+    <label for="correo">
+      DOCUMENTO: <small>(obligatorio)</small>
+    </label>
     <input class="inputs-register" type="number" name="document" min="1" minlength="8" maxlength="12" pattern="[0-9]" required>
     <br>
-    <label for="">FECHA NACIMIENTO:</label>
+    <label for="">
+      FECHA NACIMIENTO:
+    </label>
     <input class="inputs-register" type="date" name="bornDate" max="2004-01-01" required>
     <br>
-    <label for="">DIRECCION:</label>
-    <input class="inputs-register" type="text" name="address" pattern="[A-Za-z]{1,80}" required>
+    <label for="">
+      DIRECCION:
+    </label>
+    <input class="inputs-register" type="text" name="address">
     <br>
     <label for="">PAÍS:</label>
-    <select name="country" class="inputs-register">
+    <select name=" country" class="inputs-register">
       <option value="peru">Peru</option>
       <option value="colombia">Colombia</option>
       <option value="brasil">Brasil</option>
@@ -71,8 +87,8 @@ if (isset($_POST['registrar'])) {
       <option value="otros">Otros</option>
     </select>
     <br>
-    <input class="submit-register" type="submit" name="registrar" value="REGISTRAR">
-    <input class="submit-register" type="reset" name="borrar" value="BORRAR">
+    <input class="btn" type="submit" name="registrar" value="REGISTRAR">
+    <input class="btn" type="reset" name="borrar" value="BORRAR">
   </form>
 
 </body>

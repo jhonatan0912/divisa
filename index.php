@@ -17,7 +17,7 @@
         <div class="links">
           <a href="./administar-persona.php">Administrar clientes</a>
           <a href="./tasa-de-cambio.php">Tipo de cambio</a>
-          <a href="./registro-operaciones.php">Proceso de Operaciones</a>
+          <a href="./registro-operaciones.php">Registro de Operaciones</a>
           <a href="./reporte.php">Reporte</a>
         </div>
         <img src="./logo-empresa.jpeg" alt="logo-empresa">

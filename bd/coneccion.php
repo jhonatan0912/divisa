@@ -16,8 +16,8 @@ class ConeccionAgendaElectronica
   function numberContact($sql)
   {
     $respuesta = mysqli_query($this->con, $sql);
-    $cantidadContactos = mysqli_num_rows($respuesta);
-    return $cantidadContactos;
+    $usersQuantity = mysqli_num_rows($respuesta);
+    return $usersQuantity;
   }
 
   function create($sql)

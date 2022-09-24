@@ -1,10 +1,10 @@
 <?php
-require_once __DIR__ . '/../bd/contactosAdapter.php';
+require_once __DIR__ . '/../bd/userController.php';
 
-$nombresSearch = $_GET['buscar-por-nombre'];
+$documentoSearch = $_GET['buscar-por-documento'];
 
-if (isset($nombresSearch)) {
-  $datosCLiente = ContactoAdapter::listarPorNombre($nombresSearch);
+if (isset($documentoSearch)) {
+  $datosCLiente = UserController::listarPorNombre($documentoSearch);
 }
 ?>
 <html lang="ES-PE">
@@ -19,7 +19,7 @@ if (isset($nombresSearch)) {
 
 <body>
   <?php if ($datosCLiente) : ?>
-    <div class="datos-contactos">
+    <div class="datos-users">
       <table>
         <h1>RESULTADO BUSQUEDA:</h1>
         <tr>

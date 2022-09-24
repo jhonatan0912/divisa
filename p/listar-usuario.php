@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__ . '/../bd/contactosAdapter.php';
+require_once __DIR__ . '/../bd/userController.php';
 
-$users = ContactoAdapter::listar();
+$users = UserController::listar();
 ?>
 
 <html lang="en">
@@ -15,33 +15,19 @@ $users = ContactoAdapter::listar();
 </head>
 
 <body>
-  <!-- <header>
-    <form action="/p/search.php" method="GET">
-      <div class="search">
-        <label for="search-name">Filtrar por nombre:</label>
 
-        <div class="search-submit-input">
-          <input class="buscador" type="search" name="buscar-por-nombre" placeholder="Inserte nombre">
-          <input class="estilos-search" type="submit" name="boton-buscar" value="Buscar">
-        </div>
-      </div>
-    </form>
-  </header> -->
-
-
-
-  <div class="datos-contactos">
+  <div class="datos-users">
     <table>
       <tr>
-        <th class="intercalado">CODIGO</th>
+        <th class="intercalado colorWhite">CODIGO</th>
         <th class="intercalado2">NOMBRES</th>
-        <th class="intercalado">APELLIDOS</th>
+        <th class="intercalado colorWhite">APELLIDOS</th>
         <th class="intercalado2">TIPO DOCUMENTO</th>
-        <th class="intercalado">DOCUMENTO</th>
+        <th class="intercalado colorWhite">DOCUMENTO</th>
         <th class="intercalado2">FECHA NACIMIENTO</th>
-        <th class="intercalado">DIRECCION</th>
+        <th class="intercalado colorWhite">DIRECCION</th>
         <th class="intercalado2">PAIS</th>
-        <th class="intercalado">ACCIÓN</th>
+        <th class="intercalado colorWhite">ACCIÓN</th>
       </tr>
       <?php foreach ($users as $user) : ?>
         <tr>
@@ -71,7 +57,7 @@ $users = ContactoAdapter::listar();
             <?php echo ucwords($user->country) ?>
           </td>
           <td>
-            <a class="update colorWhite" href="/p/editar-contacto.php?idUser=<?php echo $user->idUser; ?>">Actualizar</a>
+            <a class="update colorWhite" href="/p/editar-usuario.php?idUser=<?php echo $user->idUser; ?>">Actualizar</a>
           </td>
         </tr>
       <?php endforeach; ?>

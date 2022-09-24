@@ -1,9 +1,9 @@
 <?php
-require_once __DIR__ . '/bd/contactosAdapter.php';
+require_once __DIR__ . '/bd/userController.php';
 
-$users = ContactoAdapter::listar();
+$users = UserController::listar();
+$usersRegistered = UserController::countNumberContacts();
 
-// $cantidadContactos  = ContactoAdapter::countNumberContacts();
 ?>
 
 <html lang="ES-PE">
@@ -13,104 +13,123 @@ $users = ContactoAdapter::listar();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/estilo.css">
-  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
-  <title>Electronic Calendar</title>
+  <title>Administacion de usuarios</title>
 </head>
 
 <body>
 
-
-  <div class="options">
-    <div class="options-crud">
-
-      <div class="new-register marginOptions backgroundWhite">
-        <img class="img-options" src="/imagenes/user-plus-solid.svg">
-        <a class="hover-a" href="/p/crear-contacto.php">
-          Nuevo
-        </a>
-      </div>
-
-      <div class="update marginOptions backgroundWhite">
-        <img class="img-options" src="/imagenes/address-book-solid.svg">
-        <a class="hover-a" href="/p/listar-contacto.php">
-          Editar
-        </a>
-      </div>
-
-      <!-- <div class="delete marginOptions backgroundWhite">
-        <img class="img-options" src="/imagenes/ban-solid.svg">
-        <a class="hover-a" href="/p/eliminar-contacto.php">
-          Borrar
-        </a>
-      </div> -->
+  <header class="admin-users-header">
+    <div>
+      <img src="./src/logo.png" alt="logo" class="logo-header">
+    </div>
+    <div>
+      <h2>Cambista al paso <br> S.A</h2>
+    </div>
+    <div>
+      <h1>ADMINISTRACIÓN DE USUARIOS</h1>
     </div>
 
-    <form action="/p/search.php" method="GET">
-      <div class="search">
-        <label for="search-name">Filtrar por nombre:</label>
+  </header>
+  <main class="main-admin-user">
+    <aside class="navigation-admin">
+      <a href="#" class="btn-navigation">
+        1
+      </a>
+      <a href="#" class="btn-navigation">
+        2
+      </a>
+      <a href="#" class="btn-navigation">
+        3
+      </a>
+      <a href="#" class="btn-navigation">
+        4
+      </a>
 
-        <div class="search-submit-input">
-          <input class="buscador" type="search" name="buscar-por-nombre" placeholder="Inserte nombre">
-          <input class="estilos-search" type="submit" name="boton-buscar" value="Buscar">
+    </aside>
+    <div class="datos-users">
+      <div class="options">
+        <div>
+          <?php echo $usersRegistered . "&nbsp;&nbsp;&nbsp;" . "usuarios registrados"; ?>
         </div>
+        <div class="options-crud">
+
+          <div class="btn-admin">
+            <img class="img-options" src="/imagenes/user-plus-solid.svg">
+            <a class="hover-a" href="/p/crear-usuario.php">
+              Agregar
+            </a>
+          </div>
+
+          <div class="btn-admin">
+            <img class="img-options" src="/imagenes/address-book-solid.svg">
+            <a class="hover-a" href="/p/listar-usuario.php">
+              Editar
+            </a>
+          </div>
+
+
+
+          <form action="/p/search.php" method="GET">
+            <div class="search oculto" id="form-search">
+              <span id="close">X</span>
+              <label for="search-name">Filtrar por documento:</label>
+
+              <div class="search-submit-input">
+                <input class="buscador" type="search" name="buscar-por-documento" placeholder="Inserte documento">
+                <input class="estilos-search" type="submit" name="boton-buscar" value="Buscar">
+              </div>
+            </div>
+          </form>
+
+          <img id="search-icon" src="./src/search.svg" alt="search icon">
+        </div>
+
       </div>
-    </form>
-  </div>
 
-  <div class="datos-contactos">
-    <table>
-      <tr>
-        <th class="intercalado">CODIGO</th>
-        <th class="intercalado2">NOMBRES</th>
-        <th class="intercalado">APELLIDOS</th>
-        <th class="intercalado2">TIPO DOCUMENTO</th>
-        <th class="intercalado">DOCUMENTO</th>
-        <th class="intercalado2">FECHA NACIMIENTO</th>
-        <th class="intercalado">DIRECCION</th>
-        <th class="intercalado2">PAIS</th>
-      </tr>
-      <?php foreach ($users as $user) : ?>
+      <table>
         <tr>
-
-          <td>
-            <?php echo ucwords($user->userCode) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->name) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->lastName) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->documentType) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->document) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->bornDate) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->address) ?>
-          </td>
-          <td>
-            <?php echo ucwords($user->country) ?>
-          </td>
+          <th class="intercalado colorWhite">CODIGO</th>
+          <th class="intercalado colorWhite">NOMBRES</th>
+          <th class="intercalado colorWhite">APELLIDOS</th>
+          <th class="intercalado colorWhite">TIPO DOCUMENTO</th>
+          <th class="intercalado colorWhite">DOCUMENTO</th>
+          <th class="intercalado colorWhite">FECHA NACIMIENTO</th>
+          <th class="intercalado colorWhite">DIRECCION</th>
+          <th class="intercalado colorWhite">PAIS</th>
         </tr>
-      <?php endforeach; ?>
-    </table>
-  </div>
+        <?php foreach ($users as $user) : ?>
+          <tr>
 
-
-  <!-- <div class="count-contacts">
-    <p class="total-contacts">
-      <?php //echo $cantidadContactos; 
-      ?> USUARIOS
-    </p>
-  </div> -->
-
-
-
+            <td>
+              <?php echo ucwords($  ->userCode) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->name) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->lastName) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->documentType) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->document) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->bornDate) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->address) ?>
+            </td>
+            <td>
+              <?php echo ucwords($user->country) ?>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </table>
+    </div>
+  </main>
+  <script src="src/assets/js/administrar-persona.js"></script>
 </body>
 
 </html>

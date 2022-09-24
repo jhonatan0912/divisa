@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/coneccion.php';
-require_once __DIR__ . '/contacto.php';
-class ContactoAdapter
+require_once __DIR__ . '/user.php';
+class UserController
 {
 
 
@@ -10,15 +10,15 @@ class ContactoAdapter
     $db = new ConeccionAgendaElectronica();
     $sql = "SELECT * FROM caso_practico.user;";
     $tabla = $db->consulta($sql);
-    $contacto = [];
+    $user = [];
     foreach ($tabla as $fila) {
-      $contacto[] = User::desdeFila($fila);
+      $user[] = User::desdeFila($fila);
     }
-    return $contacto;
+    return $user;
   }
 
 
-  static function listarPorNombre($nombresSearch)
+  static function listarPorNombre($documento)
   {
     $db = new ConeccionAgendaElectronica();
     $sql = "SELECT idUser,
@@ -31,8 +31,8 @@ class ContactoAdapter
                   address,
                   country
      FROM caso_practico.user
-     WHERE name 
-     LIKE '$nombresSearch';";
+     WHERE document 
+     LIKE '$documento';";
     // echo $sql;
 
     $tabla = $db->consulta($sql);
@@ -47,8 +47,8 @@ class ContactoAdapter
   {
     $db = new ConeccionAgendaElectronica();
     $sql = "SELECT * FROM caso_practico.user;";
-    $numeroContactos = $db->numberContact($sql);
-    return $numeroContactos;
+    $usersQuantity = $db->numberContact($sql);
+    return $usersQuantity;
   }
 
   static function getContactById($idUser)
@@ -109,16 +109,6 @@ SET
 `country` = '$user->country'
 WHERE `idUser` = '$user->idUser';";
     $respuesta = $db->update($sql);
-    $db->close();
-    return $respuesta;
-  }
-
-  static function deleteContact($id)
-  {
-    $sql = "DELETE FROM `agenda_electronica`.`contactos`
-          WHERE idContacto=$id;";
-    $db = new ConeccionAgendaElectronica();
-    $respuesta = $db->delete($sql);
     $db->close();
     return $respuesta;
   }

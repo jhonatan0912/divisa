@@ -1,3 +1,10 @@
+:root {
+  --background1: #CECECE;
+  --background2: #E0E0E0;
+  --header: #4A4A4A;
+  --buttonRed: #FE0D0D;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 * {
@@ -12,7 +19,9 @@ body {
 }
 
 label {
-  font-size: 1.5em;
+  text-align: left;
+  font-size: 1.2em;
+  margin: 10px 0 0 0;
 }
 
 a {
@@ -24,12 +33,14 @@ a {
   display: flex;
   padding: 50px 70px;
   justify-content: space-between;
-  border-bottom: 1px solid grey;
-  box-shadow: 0 1px 3px grey;
+  align-items: center;
+  font-weight: bold;
 }
 
 .options-crud {
   display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
 .new-register,
@@ -44,8 +55,8 @@ a {
   background-color: rgb(142, 142, 142);
 }
 
-.hover-a:hover {
-  color: #ffffff;
+.hover-a {
+  color: var(--header);
 }
 
 .new-register {
@@ -95,14 +106,13 @@ a {
 
 th,
 td {
-  border: 2px solid black;
+  border: 1px solid;
   font-size: 1.5em;
   padding: 15px;
-  border-radius: 5px;
 }
 
 table {
-  margin: 100px auto;
+  margin: 10px auto;
 }
 
 .total-contacts {
@@ -119,32 +129,30 @@ table {
 .form-register {
   width: 400px;
   text-align: center;
-  background-color: #9a9a9a;
   padding: 50px;
-  border-radius: 15px;
+  border-radius: 8px;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 3px 3px 10px #000;
 }
 
 .inputs-register {
-  height: 30px;
-  width: 200px;
-  border-radius: 10px;
-  border: 2px solid;
-  margin: 0 auto;
-  padding: 0 10px;
+  height: 35px;
+  border-radius: 8px;
+  border: none;
+  background-color: #C4C4C4;
+  text-align: center;
 }
 
-.submit-register {
-  width: 150px;
-  height: 30px;
-  border-radius: 12px;
-  margin: 0 auto;
-  font-weight: 700;
-  margin-top: 10px;
-  background-color: #e27070;
+.btn {
+  margin: 20px auto;
+  padding: 1.5em 3em;
+  color: white;
+  background-color: #648BC6;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .submit-register:hover {
@@ -168,6 +176,29 @@ table {
   color: #ffffff;
 }
 
+.search {
+  border: 1px solid #000;
+  padding: 2em 5em 3em;
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  background-color: #9a9a9a;
+
+}
+
+.search.mostrar {
+  animation: show .5s linear;
+}
+
+@keyframes show {
+  from {
+    transform: scale(.5);
+  }
+
+  to {
+    transform: scale(1.1);
+  }
+}
 
 /* estilos images opciones */
 .img-options {
@@ -175,8 +206,24 @@ table {
   fill: red;
 }
 
+.search-submit-input {
+  margin: 8px 0;
+}
+
 
 /* clases de apoyo */
+.text-left {
+  text-align: left;
+}
+
+.background1 {
+  background-color: var(--background1);
+}
+
+.background2 {
+  background-color: var(--background2);
+}
+
 .marginOptions {
   margin-right: 1em;
 }
@@ -200,8 +247,128 @@ table {
 .updateTextCenter {
   text-align: center;
 }
+
+.oculto {
+  display: none;
+}
+
+.mostrar {
+  display: block;
+}
+
 input [number]::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-        -webkit-appearance: none;   
-        margin: 0;
-        }
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus,
+select:focus {
+  outline: #e27070 solid 2px;
+}
+
+/* +++++++++++++++++++ */
+#search-icon {
+  width: 30px;
+  cursor: pointer;
+}
+
+#close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-weight: bolder;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* EDITAR USUARIO ESTILOS */
+.update-user-container {
+  height: 100vh;
+  display: flex;
+}
+
+.update__section {
+  width: 50%;
+  text-align: center;
+}
+
+.tittle {
+  width: 60%;
+  padding: 1.5em;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background-color: var(--buttonRed);
+}
+
+.section-update1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* FIN EDITAR USUARIO ESTILOS */
+/* ADMINISTRAR USUARIOS ESTILOS */
+.admin-users-header {
+  display: flex;
+  background-color: var(--header);
+  gap: 10%;
+  text-align: center;
+  color: white;
+  align-items: center;
+  padding: 0 2em;
+  height: 100px;
+}
+
+.logo-header {
+  width: 70px;
+}
+
+.datos-users {
+  padding: 1em;
+  background-color: var(--background1);
+  width: 75%;
+}
+
+.btn-admin {
+  padding: 1em;
+  background-color: #648BC6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.main-admin-user {
+  display: flex;
+  margin: 50px 0;
+}
+
+.navigation-admin {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-navigation {
+  border: 1px solid var(--header);
+  padding: 1em 0;
+  width: 80%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.btn-navigation:hover {
+  transform: scale(1.2);
+  background-color: var(--header);
+  color: white;
+}
+
+/*FIN ADMINISTRAR USUARIOS ESTILOS */
