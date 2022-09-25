@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F2F2F2;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.contenedor {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  font-family: helvetica;
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.logo .logo-text a {
+  margin-left: 20px;
+  font-size: 30px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: rgb(231, 230, 230);
+}
+
+.logo {
+  margin-top: 0;
+  padding: 10px 0 10px 50px;
+}
+
+.logo img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+.menu {
+  width: 800px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.menu>ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  gap: 5em;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(230, 228, 228);
+  font-size: 16px;
+
+}
+
+.menu a:hover {
+  color: #648BC6;
+  transition: all .40s;
+}
+
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.company-content {
+  background-color: #cececee7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  height: 100%;
+  padding: 100px 60px 80px 60px;
+}
+
+.company-content>p {
+  font-size: 20px;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.company-content>img {
+  width: 250px;
+  height: 320px;
+  margin-top: 80px;
+}
+
+.main-content {
+  background-color: rgb(253, 253, 253);
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 60px 80px 60px;
+}
+
+.main-content>img {
+  width: 300px;
+}
+
+.main-content>p {
+  padding-top: 100px;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-family: verdana;
+}
+
+.main-content>span {
+  color: #648BC6;
+  padding-top: 100px;
+  font-size: 20px;
+}

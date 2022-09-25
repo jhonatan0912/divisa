@@ -180,9 +180,10 @@ table {
   border: 1px solid #000;
   padding: 2em 5em 3em;
   position: absolute;
-  top: 10%;
+  top: 12%;
   left: 40%;
   background-color: #9a9a9a;
+  border-radius: 8px;
 
 }
 
@@ -372,3 +373,10 @@ select:focus {
 }
 
 /*FIN ADMINISTRAR USUARIOS ESTILOS */
+.w-full {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}

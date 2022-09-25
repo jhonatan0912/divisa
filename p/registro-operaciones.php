@@ -154,7 +154,7 @@ if (isset($_POS['save'])) {
 
     </form>
   </main>
-  <script src="./src/assets/js/registro-operaciones.js"></script>
+  <script src="/src/assets/js/registro-operaciones.js"></script>
 </body>
 
 </html>

@@ -30,12 +30,13 @@ if (isset($idUser)) {
         echo "no se pudo actualizar el user";
       } else {
         $guardado = TRUE;
-        header('location: /p/listar-user.php');
+        header('location: /p/listar-usuario.php');
       }
     }
   }
 }
 $countries = ["peru", "colombia", "brasil", "chile", "argentina", "otros"];
+$documentTypes = ["DNI", "PASAPORTE"];
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ $countries = ["peru", "colombia", "brasil", "chile", "argentina", "otros"];
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/../estilo.css">
+  <link rel="stylesheet" href="/src/assets/css/estilo.css">
   <title>Editar usuario</title>
 </head>
 
@@ -54,13 +55,13 @@ $countries = ["peru", "colombia", "brasil", "chile", "argentina", "otros"];
 
     <section class="update__section background1 section-update1">
       <div>
-        <img src="./../src/logo.png" alt="logo" class="logo">
+        <img src="/imagenes/logo.png" alt="logo" class="logo">
       </div>
       <button class="tittle">
         Cambista al paso S.A
       </button>
       <div>
-        <img src="./../src/update-ilustration.png" alt="ilustration" class="update-ilustration">
+        <img src="/imagenes/update-ilustration.png" alt="ilustration" class="update-ilustration">
       </div>
     </section>
 
@@ -81,8 +82,9 @@ $countries = ["peru", "colombia", "brasil", "chile", "argentina", "otros"];
         <td>
           <label for="">Tipo Documento:</label>
           <select name="documentType" class="inputs-register">
-            <option value="DNI">DNI</option>
-            <option value="PASAPORTE">PASAPORTE</option>
+            <?php foreach ($documentTypes as $dc) : ?>
+              <option <?php echo $dc == $user->documentType ? "selected" : ""; ?> value="<?php echo $dc ?>"><?php echo $dc ?></option>
+            <?php endforeach; ?>
           </select>
         </td>
         <td>

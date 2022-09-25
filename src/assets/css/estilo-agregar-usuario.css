@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F2F2F2;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.contenedor {
+  background-color: rgb(51, 51, 51);
+  color: white;
+  font-family: helvetica;
+}
+
+.menu-superior {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.logo .logo-text a {
+  margin-left: 20px;
+  font-size: 30px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: rgb(231, 230, 230);
+}
+
+.logo {
+  margin-top: 0;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 50px;
+}
+
+.logo img {
+  width: 50px;
+  vertical-align: middle;
+}
+
+.menu {
+  width: 59%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.page-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.company-content {
+  background-color: #cececee7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+  padding: 80px 60px 0 60px;
+}
+
+.company-content>.img-logo {
+  width: 150px;
+}
+
+.company-content>.title {
+  background-color: #648BC6;
+  margin-top: 30px;
+  padding: 15px 100px;
+  border-radius: 40px;
+  font-size: 23px;
+}
+
+.company-content>p {
+  font-size: 20px;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.company-content>.img-mujer {
+  width: 250px;
+  height: 320px;
+  margin: 50px 0;
+}
+
+.main-content {
+  background-color: #f6f6f6;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 60px 0 60px;
+}
+
+
+.form-register {
+  width: 450px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-register>h1 {
+  font-size: 2.3em;
+  padding-bottom: 20px;
+}
+
+label {
+  text-align: left;
+  font-size: 1.2em;
+  margin: 15px 0 8px 0;
+}
+
+.inputs-register {
+  height: 45px;
+  border-radius: 8px;
+  border: none;
+  background-color: #C4C4C4;
+  text-align: center;
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  padding-top: 30px;
+}
+
+.buttons>.btn {
+  margin: 10px auto;
+  padding: 1.3em 3em;
+  color: white;
+  background-color: #648BC6;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-register>a {
+  color: black;
+  padding-top: 30px;
+}
+
+input [number]::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus,
+select:focus {
+  outline: #648BC6 solid 2px;
+}
