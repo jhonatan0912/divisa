@@ -29,32 +29,31 @@ if (isset($_POST['registrar'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/src/assets/css/estilo-agregar-usuario.css">
+  <!-- <link rel="stylesheet" href="/src/assets/css/estilo-agregar-usuario.css"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Registro cliente</title>
 </head>
 
 <body>
 
-  <header>
-    <div class="contenedor">
-      <nav class="menu-superior">
-        <div class="logo">
-          <a href="/">
-            <img src="/imagenes/logo.png" alt="">
-          </a>
-          <span class="logo-text">
-            <a href="">Cambista al Paso</a>
-          </span>
-        </div>
-        <div class="menu">
-          <h2>ADMINISTRAR USUARIO</h2>
-        </div>
-      </nav>
-    </div>
+  <header class="flex bg-zinc-700	text-white p-4">
+    <nav class="menu-superior flex items-center gap-10">
+      <div class="flex logo items-center gap-2">
+        <a href="/">
+          <img src="/imagenes/logo.png" alt="" class="w-20">
+        </a>
+        <span class="logo-text">
+          <a href="">Cambista al Paso</a>
+        </span>
+      </div>
+      <div class="menu">
+        <h2 class="text-xl font-bold">ADMINISTRAR USUARIO</h2>
+      </div>
+    </nav>
   </header>
 
-  <div class="page-content">
-    <section class="company-content">
+  <main class="page-content grid grid-cols-2">
+    <section class="company-content bg-gray-400	">
       <img class="img-logo" src="/imagenes/logo.png" alt="">
       <p class="title">Cambista al Paso S.A</p>
       <img class="img-mujer" src="/imagenes/mujer.png" alt="">
@@ -71,12 +70,12 @@ if (isset($_POST['registrar'])) {
         <label for="">
           NOMBRES: <small>(obligatorio)</small>
         </label>
-        <input class="inputs-register" type="text" name="name" pattern="[A-Za-z]{1,50}" title="Solo debe considerar letras mayusculas o minusculas / Sin números" required>
+        <input class="inputs-register" type="text" name="name" id="name" pattern="[A-Za-z]{1,50}" title="Solo debe considerar letras mayusculas o minusculas / Sin números" required>
         <br>
         <label for="">
           APELLIDOS: <small>(obligatorio)</small>
         </label>
-        <input class="inputs-register" type="text" name="lastName" pattern="[A-Za-z]{1,80}" title="solo debe considerar letras mayusculas o minusculas / Sin números" required>
+        <input class="inputs-register" type="text" name="lastName" id="lastName" pattern="[A-Za-z]{1,80}" title="solo debe considerar letras mayusculas o minusculas / Sin números" required>
         <br>
         <label for="">
           TIPO DOCUMENTO: <small>(obligatorio)</small>
@@ -121,9 +120,8 @@ if (isset($_POST['registrar'])) {
         </div>
         <a href="">pagina anterior</a>
       </form>
-    </section>
-  </div>
-
+  </main>
+  <script src="./../src/assets/js/crear-usuario.js"></script>
 </body>
 
 </html>

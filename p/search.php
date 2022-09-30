@@ -31,6 +31,7 @@ if (isset($documentoSearch)) {
           <th class="intercalado2">FECHA NACIMIENTO</th>
           <th class="intercalado">DIRECCION</th>
           <th class="intercalado2">PAIS</th>
+          <th>ACCIÓN</th>
         </tr>
         <tr>
           <td><?php echo ucwords($datosCLiente->userCode) ?></td>
@@ -41,6 +42,7 @@ if (isset($documentoSearch)) {
           <td><?php echo $datosCLiente->bornDate ?></td>
           <td><?php echo $datosCLiente->address ?></td>
           <td><?php echo $datosCLiente->country ?></td>
+          <td><a class="update" href="/p/editar-usuario.php?idUser=<?php echo $datosCLiente->idUser ?>">Editar</a></td>
         </tr>
       </table>
     </div>

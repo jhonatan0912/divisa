@@ -71,7 +71,7 @@ $usersRegistered = UserController::countNumberContacts();
 
 
 
-          <form action="/p/search.php method=" GET">
+          <form action="/p/search.php" method=" GET">
             <div class="search oculto" id="form-search">
               <span id="close">X</span>
               <label for="search-name">Filtrar por documento:</label>
