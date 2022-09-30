@@ -55,70 +55,90 @@ if (isset($_POST['registrar'])) {
   <main class="page-content grid grid-cols-2">
     <section class="company-content bg-gray-300	text-center">
       <img class="img-logo w-32 m-auto mt-5" src="/imagenes/logo.png" alt="">
-      <p class="title p-5 bg-red-600 text-white w-80 m-auto mt-5 mb-5 rounded-lg">Cambista al Paso S.A</p>
-      <img class="img-mujer w-60 m-auto" src="/imagenes/mujer.png" alt="">
-      <p>Somos una empresa dedicada a la compra-venta de divisas. Nos enfocamos en la atención al cliente de una manera afectiva, con equidad y respeto.</p>
+      <p class="title py-4 bg-blue-500 text-white w-80 m-auto mt-5 mb-5 rounded-3xl">Cambista al Paso S.A</p>
+      <img class="img-mujer w-60 m-auto my-5" src="/imagenes/mujer.png" alt="">
+      <p class="text-center w-96 m-auto">Somos una empresa dedicada a la compra-venta de divisas. Nos enfocamos en la atención al cliente de una manera afectiva, con equidad y respeto.</p>
       <br><br>
-      <p>Ofrecemos un servicio de confiabilidad y con garantía, buscando ampliar confianza y seguridad hacia nuestros clientes.</p>
+      <p class="text-center w-96 m-auto">Ofrecemos un servicio de confiabilidad y con garantía, buscando ampliar confianza y seguridad hacia nuestros clientes.</p>
     </section>
 
-    <section class="main-content bg-gray-100">
-      <form class="form-register" action="" method="POST">
-        <h1>REGISTRO USUARIOS</h1>
+    <section class="main-content bg-gray-100 flex items-center justify-center flex-col">
+      <form class="form-register w-80 mt-7" action="" method="POST">
+        <h1 class="font-black text-xl text-left">REGISTRO USUARIOS</h1>
         <br>
         <br>
-        <label for="">
-          NOMBRES: <small>(obligatorio)</small>
-        </label>
-        <input class="inputs-register" type="text" name="name" id="name" pattern="[A-Za-z]{1,50}" title="Solo debe considerar letras mayusculas o minusculas / Sin números" required>
-        <br>
-        <label for="">
-          APELLIDOS: <small>(obligatorio)</small>
-        </label>
-        <input class="inputs-register" type="text" name="lastName" id="lastName" pattern="[A-Za-z]{1,80}" title="solo debe considerar letras mayusculas o minusculas / Sin números" required>
-        <br>
-        <label for="">
-          TIPO DOCUMENTO: <small>(obligatorio)</small>
-        </label>
-        <select name="documentType" id="" required class="inputs-register">
-          <option value="DNI" name="DNI">
-            DNI
-          </option>
-          <option value="PASAPORTE" name="PASAPORTE">
-            PASAPORTE
-          </option>
-        </select>
-        <br>
-        <label for="correo">
-          DOCUMENTO: <small>(obligatorio)</small>
-        </label>
-        <input class="inputs-register" type="number" name="document" min="1" minlength="8" maxlength="12" pattern="[0-9]" required>
-        <br>
-        <label for="">
-          FECHA DE NACIMIENTO:
-        </label>
-        <input class="inputs-register" type="date" name="bornDate" max="2004-01-01" required>
-        <br>
-        <label for="">
-          DIRECCION:
-        </label>
-        <input class="inputs-register" type="text" name="address">
-        <br>
-        <label for="">PAÍS:</label>
-        <select name=" country" class="inputs-register">
-          <option value="peru">Peru</option>
-          <option value="colombia">Colombia</option>
-          <option value="brasil">Brasil</option>
-          <option value="chile">Chile</option>
-          <option value="argentina">Argentina</option>
-          <option value="otros">Otros</option>
-        </select>
-        <br>
-        <div class="buttons">
-          <input class="btn" type="submit" name="registrar" value="REGISTRAR">
-          <input class="btn" type="reset" name="borrar" value="CANCELAR">
+
+        <div class="flex flex-col">
+          <label for=""> NOMBRES: <small class="text-red-500">(obligatorio)</small> </label>
+          <input class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0" type="text" name="name" id="name" pattern="[A-Za-z]{1,50}" title="Solo debe considerar letras mayusculas o minusculas / Sin números" required>
         </div>
-        <a href="">pagina anterior</a>
+
+        <br>
+
+        <div class="flex flex-col">
+          <label for="">APELLIDOS:<small class="text-red-500">(obligatorio)</small>
+          </label>
+          <input class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0" type="text" name="lastName" id="lastName" pattern="[A-Za-z]{1,80}" title="solo debe considerar letras mayusculas o minusculas / Sin números" required>
+        </div>
+
+        <br>
+
+        <div class="flex flex-col">
+          <label for="">
+            TIPO DOCUMENTO: <small class="text-red-500">(obligatorio)</small>
+          </label>
+          <select name="documentType" id="" required class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0">
+            <option value="DNI" name="DNI">
+              DNI
+            </option>
+            <option value="PASAPORTE" name="PASAPORTE">
+              PASAPORTE
+            </option>
+          </select>
+        </div>
+
+        <br>
+        <div class="flex flex-col">
+          <label for="correo">
+            DOCUMENTO: <small class="text-red-500">(obligatorio)</small>
+          </label>
+          <input class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0" type="number" name="document" min="1" minlength="8" maxlength="12" pattern="[0-9]" required>
+        </div>
+
+        <br>
+        <div class="flex flex-col">
+          <label for="">
+            FECHA DE NACIMIENTO:
+          </label>
+          <input class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0" type="date" name="bornDate" max="2004-01-01" required>
+        </div>
+        <br>
+        <div class="flex flex-col">
+          <label for="">
+            DIRECCION:
+          </label>
+          <input class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0" type="text" name="address">
+        </div>
+        <br>
+        <div class="flex flex-col">
+          <label for="">PAÍS:</label>
+          <select name=" country" class="inputs-register bg-gray-300 rounded-lg p-0.5 outline-0">
+            <option value="peru">Peru</option>
+            <option value="colombia">Colombia</option>
+            <option value="brasil">Brasil</option>
+            <option value="chile">Chile</option>
+            <option value="argentina">Argentina</option>
+            <option value="otros">Otros</option>
+          </select>
+        </div>
+        <br>
+        <div class="flex flex-col">
+          <div class="buttons flex justify-between">
+            <input class="btn bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer" type="submit" name="registrar" value="REGISTRAR">
+            <input class="btn bg-blue-500 text-white px-4 py-2 rounded-lg cursor-pointer" type="reset" name="borrar" value="CANCELAR">
+          </div>
+          <a href="" class="underline text-center mt-5">pagina anterior</a>
+        </div>
       </form>
   </main>
   <script src="./../src/assets/js/crear-usuario.js"></script>
