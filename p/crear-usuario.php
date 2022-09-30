@@ -34,7 +34,7 @@ if (isset($_POST['registrar'])) {
   <title>Registro cliente</title>
 </head>
 
-<body>
+<body class="overflow-hidden">
 
   <header class="flex bg-zinc-700	text-white p-4">
     <nav class="menu-superior flex items-center gap-10">
@@ -53,7 +53,7 @@ if (isset($_POST['registrar'])) {
   </header>
 
   <main class="page-content grid grid-cols-2">
-    <section class="company-content bg-gray-300	text-center">
+    <section class="company-content bg-gray-300	text-center pb-28">
       <img class="img-logo w-32 m-auto mt-5" src="/imagenes/logo.png" alt="">
       <p class="title py-4 bg-blue-500 text-white w-80 m-auto mt-5 mb-5 rounded-3xl">Cambista al Paso S.A</p>
       <img class="img-mujer w-60 m-auto my-5" src="/imagenes/mujer.png" alt="">
