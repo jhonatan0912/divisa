@@ -15,7 +15,7 @@ if (isset($_POST['registrar'])) {
   $user = new User(0, $userCode, $name, $lastName, $documentType, $document, $bornDate, $address, $country);
   $id = UserController::createContact($user);
 
-  if ($id != false) {
+  if ($id != FALSE) {
     // echo "registrado correctamente";
   } else {
     // echo "error";
@@ -53,16 +53,16 @@ if (isset($_POST['registrar'])) {
   </header>
 
   <main class="page-content grid grid-cols-2">
-    <section class="company-content bg-gray-400	">
-      <img class="img-logo" src="/imagenes/logo.png" alt="">
-      <p class="title">Cambista al Paso S.A</p>
-      <img class="img-mujer" src="/imagenes/mujer.png" alt="">
+    <section class="company-content bg-gray-300	text-center">
+      <img class="img-logo w-32 m-auto mt-5" src="/imagenes/logo.png" alt="">
+      <p class="title p-5 bg-red-600 text-white w-80 m-auto mt-5 mb-5 rounded-lg">Cambista al Paso S.A</p>
+      <img class="img-mujer w-60 m-auto" src="/imagenes/mujer.png" alt="">
       <p>Somos una empresa dedicada a la compra-venta de divisas. Nos enfocamos en la atención al cliente de una manera afectiva, con equidad y respeto.</p>
       <br><br>
       <p>Ofrecemos un servicio de confiabilidad y con garantía, buscando ampliar confianza y seguridad hacia nuestros clientes.</p>
     </section>
 
-    <section class="main-content">
+    <section class="main-content bg-gray-100">
       <form class="form-register" action="" method="POST">
         <h1>REGISTRO USUARIOS</h1>
         <br>
